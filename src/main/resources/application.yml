@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/local
+
+---
+spring:
+  kafka:
+    listener:
+      concurrency: 3
+    consumer:
+      topic: DemoTopic
+      client-id: test
+      auto-offset-reset: earliest
+      bootstrap-servers: "localhost:9092"
+      group-id: test
+    producer:
+      bootstrap-servers: "localhost:9092"
+      retries: 3
+      acks: 1
