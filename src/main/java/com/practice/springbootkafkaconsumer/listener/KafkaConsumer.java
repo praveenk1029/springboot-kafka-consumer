@@ -18,7 +18,9 @@ public class KafkaConsumer {
     }*/
 
     //@KafkaListener(topics = "KafkaExampleJson", groupId = "group_json",
-    @KafkaListener(topics = "DemoTopic", groupId = "group_json")
+    @KafkaListener(
+            topics = "${spring.kafka.consumer.topic}",
+            groupId = "${spring.kafka.consumer.group-id}")
     public void consumeJson(String person){
         ObjectMapper obj = new ObjectMapper();
         Person person1 = null;

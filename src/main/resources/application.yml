@@ -12,12 +12,14 @@ spring:
     listener:
       concurrency: 3
     consumer:
-      topic: DemoTopic
-      client-id: test
+      topic: MultiPart2Replica2Topic
+      client-id: 1
       auto-offset-reset: earliest
-      bootstrap-servers: "localhost:9092"
-      group-id: test
+      bootstrap-servers: "localhost:9092, localhost:9093, localhost:9094"
+      group-id: json_group
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
     producer:
-      bootstrap-servers: "localhost:9092"
+      bootstrap-servers: "localhost:9092, localhost:9093, localhost:9094"
       retries: 3
       acks: 1
