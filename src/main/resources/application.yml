@@ -5,6 +5,13 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/local
+      #uri: "${mongodb-dev}"
+---
+#azure:
+#  keyvault:
+#    client-id:
+#    client-key:
+#    uri: https://azure-practice.vault.azure.net/
 
 ---
 spring:
@@ -12,7 +19,7 @@ spring:
     listener:
       concurrency: 3
     consumer:
-      topic: MultiPart2Replica2Topic
+      topic: MultiPart3Serv3Topic
       client-id: 1
       auto-offset-reset: earliest
       bootstrap-servers: "localhost:9092, localhost:9093, localhost:9094"
